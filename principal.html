@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="keywords"
         content="SALTO,MONTEVIDEO (Todas),Ómnibus,Horarios y Precios,Pasajes,Comprar,Asientos, micros, copsa, rutas del sol, intertur, cromin, Uruguay, venta, pasajes, online, tickets, visa, mastercard, ebrou, santander, turil, cynsa, nuñez, grupo carminatti, cut, corporacion, montevideo, punta del este, tres cruces, aeropuerto carrasco, la pedrera, cabo polonio, la paloma, santa teresa, punta del diablo, cabo polonio, carmelo, piriapolis, dolores, colonia valdense, colonia, rivera, tacuarembó, artigas, salto, florida, durazno, plaza cuba" />
@@ -513,70 +513,111 @@
                 <div class="bg-content">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-6 col-md-5" style="max-width: 450px;">
-                                <div class="search-tabs search-tabs-bg mt10 pb30">
+                            <div class="col-sm-6 col-md-5 bajar-formulario" style="max-width: 450px;">
+                                <div class="search-tabs search-tabs-bg mt10 pb30 formulario-buses">
                                     <div class="tabbable mb40">
-                                        <ul class="nav nav-tabs" id="myTab">
-                                            <li class="active" id="active"><a href="#tab-0" rel="nofollow"
-                                                    rel="nofollow" data-toggle="tab"><i class="fa fa-bus"></i>
-                                                    <span>Buses</span></a> </li>
-                                        </ul>
+                                        <!-- Removed form-header: title moved out of the form as requested -->
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active" id="tab-0">
                                                 <form name="frm_search" action="./omnibus-horarios" method="GET"
                                                     autocomplete="off">
                                                     <div class="tabbable">
-                                                                                                                <!-- Improved bus toggle: accessible, contrast, and dynamic active handling -->
-                                                                                                                <style>
-                                                                                                                /* Bus toggle styles (copy to external stylesheet if desired) */
-                                                                                                                .bus-toggle { display:inline-block; font-family: "Open Sans", Arial, sans-serif; }
-                                                                                                                .bus-toggle.nav { padding:0; margin:0; list-style:none; display:flex; gap:8px; align-items:center; }
-                                                                                                                .bus-toggle.nav li { display:inline-block; }
-                                                                                                                .bus-toggle.nav li a { display:inline-block; padding:8px 18px; background:#f1f1f1; color:#333; border-radius:25px; text-decoration:none; font-weight:600; font-size:14px; border:1px solid rgba(0,0,0,0.08); transition: background .2s ease, color .2s ease, box-shadow .2s ease; cursor:pointer; }
-                                                                                                                .bus-toggle.nav li a:hover, .bus-toggle.nav li a:focus { background:#e2e2e2; color:#111; }
-                                                                                                                .bus-toggle.nav li a.active { background:#d87b25; color:#fff; border-color:#b9651e; box-shadow:0 3px 10px rgba(0,0,0,0.18); }
-                                                                                                                .bus-toggle.nav-sm li a { padding:6px 12px; font-size:13px; border-radius:20px; }
-                                                                                                                </style>
+                                                        <!-- Improved bus toggle: accessible, contrast, and dynamic active handling -->
+                                                        <style>
+                                                            /* Bus toggle styles (copy to external stylesheet if desired) */
+                                                            .bajar-formulario {
+                                                                margin-top: 60px !important;   /* 2 cm aprox */
+                                                            }
 
-                                                                                                                <ul class="bus-toggle nav nav-pills nav-sm nav-no-br mb10" id="busChooseTab" role="tablist">
-                                                                                                                    <li>
-                                                                                                                        <a href="#" 
-                                                                                                                             id="btn-ida-vuelta"
-                                                                                                                             role="tab"
-                                                                                                                             aria-selected="false"
-                                                                                                                             onclick="document.getElementById('date_return').style.display='block'; document.getElementById('iyv').value='1'; toggleBusButtons(this); return false;">
-                                                                                                                             Ida y Vuelta
-                                                                                                                        </a>
-                                                                                                                    </li>
+                                                            .bus-toggle {
+                                                                display: inline-block;
+                                                                font-family: "Open Sans", Arial, sans-serif;
+                                                            }
 
-                                                                                                                    <li>
-                                                                                                                        <a href="#"
-                                                                                                                             id="btn-solo-ida"
-                                                                                                                             class="active"
-                                                                                                                             role="tab"
-                                                                                                                             aria-selected="true"
-                                                                                                                             onclick="document.getElementById('date_return').style.display='none'; document.getElementById('iyv').value='0'; toggleBusButtons(this); return false;">
-                                                                                                                             Sólo Ida
-                                                                                                                        </a>
-                                                                                                                    </li>
-                                                                                                                </ul>
+                                                            .bus-toggle.nav {
+                                                                padding: 0;
+                                                                margin: 0;
+                                                                list-style: none;
+                                                                display: flex;
+                                                                gap: 8px;
+                                                                align-items: left;
+                                                                justify-content: left;
+                                                            }
 
-                                                                                                                <!-- input oculto -->
-                                                                                                                <input id="iyv" name="iyv" type="number" value="0" style="display:none;">
+                                                            .bus-toggle.nav li {
+                                                                display: inline-block;
+                                                            }
 
-                                                                                                                <script>
-                                                                                                                    // Toggle visual y accesibilidad para los botones Ida/Vuelta
-                                                                                                                    function toggleBusButtons(selected) {
-                                                                                                                        const buttons = document.querySelectorAll('#busChooseTab a');
-                                                                                                                        buttons.forEach(btn => {
-                                                                                                                            btn.classList.remove('active');
-                                                                                                                            btn.setAttribute('aria-selected', 'false');
-                                                                                                                        });
+                                                            .bus-toggle.nav li a {
+                                                                display: inline-block;
+                                                                padding: 8px 18px;
+                                                                background: #f1f1f1;
+                                                                color: #333;
+                                                                border-radius: 25px;
+                                                                text-decoration: none;
+                                                                font-weight: 600;
+                                                                font-size: 14px;
+                                                                border: 1px solid rgba(0, 0, 0, 0.08);
+                                                                transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+                                                                cursor: pointer;
+                                                            }
 
-                                                                                                                        selected.classList.add('active');
-                                                                                                                        selected.setAttribute('aria-selected', 'true');
-                                                                                                                    }
-                                                                                                                </script>
+                                                            .bus-toggle.nav li a:hover,
+                                                            .bus-toggle.nav li a:focus {
+                                                                background: #e2e2e2;
+                                                                color: #111;
+                                                            }
+
+                                                            .bus-toggle.nav li a.active {
+                                                                background: #d87b25;
+                                                                color: #fff;
+                                                                border-color: #b9651e;
+                                                                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+                                                            }
+
+                                                            .bus-toggle.nav-sm li a {
+                                                                padding: 6px 12px;
+                                                                font-size: 13px;
+                                                                border-radius: 20px;
+                                                            }
+                                                        </style>
+
+                                                        <ul class="bus-toggle nav nav-pills nav-sm nav-no-br mb10"
+                                                            id="busChooseTab" role="tablist">
+                                                            <li>
+                                                                <a href="#" id="btn-ida-vuelta" role="tab"
+                                                                    aria-selected="false"
+                                                                    onclick="document.getElementById('date_return').style.display='block'; document.getElementById('iyv').value='1'; toggleBusButtons(this); return false;">
+                                                                    Ida y Vuelta
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="#" id="btn-solo-ida" class="active" role="tab"
+                                                                    aria-selected="true"
+                                                                    onclick="document.getElementById('date_return').style.display='none'; document.getElementById('iyv').value='0'; toggleBusButtons(this); return false;">
+                                                                    Sólo Ida
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+
+                                                        <!-- input oculto -->
+                                                        <input id="iyv" name="iyv" type="number" value="0"
+                                                            style="display:none;">
+
+                                                        <script>
+                                                            // Toggle visual y accesibilidad para los botones Ida/Vuelta
+                                                            function toggleBusButtons(selected) {
+                                                                const buttons = document.querySelectorAll('#busChooseTab a');
+                                                                buttons.forEach(btn => {
+                                                                    btn.classList.remove('active');
+                                                                    btn.setAttribute('aria-selected', 'false');
+                                                                });
+
+                                                                selected.classList.add('active');
+                                                                selected.setAttribute('aria-selected', 'true');
+                                                            }
+                                                        </script>
                                                         <input type="hidden" id="s" name="s" type="radio" value="0" />
                                                         <div class="tab-content">
                                                             <div class="tab-pane fade in active" id="bus-search-1">
@@ -696,27 +737,57 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-7 ml0 pl0">
-                                                                <!-- Se elimina el título pequeño de la izquierda (no deseado) -->
-                                                                <style>
-                                                                    /* Forzar visibilidad completa del tagline derecho y evitar recortes */
-                                                                    #tagline { position: relative; z-index: 999; overflow: visible !important; max-width: 80%; }
-                                                                    #tagline h2 { text-align: left !important; margin: 0; white-space: nowrap; display: inline-block; }
-                                                                    /* Asegurar que el span no empuje el título hacia la derecha */
-                                                                    #tagline > span.pull-right { float: right; margin-left: 12px; color: inherit; }
-                                                                    /* Ajuste responsivo: permitir salto de línea en móviles y tamaño reducido */
-                                                                    @media (max-width: 991px) {
-                                                                        #tagline { max-width: 60%; }
-                                                                        #tagline h2 { white-space: normal; font-size: 22px !important; }
-                                                                    }
-                                                                    @media (max-width: 767px) {
-                                                                        #tagline { font-size: 20px !important; max-width: 100%; }
-                                                                        #tagline h2 { font-size: 20px !important; }
-                                                                    }
-                                                                </style>
-                                                                <div class="tagline hidden-xs  ml0 pl10" id="tagline"
-                                                                        style="font-size:36px;position:inherit;">
+                                <!-- Se elimina el título pequeño de la izquierda (no deseado) -->
+                                <style>
+                                    /* Forzar visibilidad completa del tagline derecho y evitar recortes */
+                                    #tagline {
+                                        position: relative;
+                                        z-index: 999;
+                                        overflow: visible !important;
+                                        max-width: 80%;
+                                    }
 
-                                                                        <span class="pull-right">online</span>
+                                    #tagline h2 {
+                                        text-align: left !important;
+                                        margin: 0;
+                                        white-space: nowrap;
+                                        display: inline-block;
+                                    }
+
+                                    /* Asegurar que el span no empuje el título hacia la derecha */
+                                    #tagline>span.pull-right {
+                                        float: right;
+                                        margin-left: 12px;
+                                        color: inherit;
+                                    }
+
+                                    /* Ajuste responsivo: permitir salto de línea en móviles y tamaño reducido */
+                                    @media (max-width: 991px) {
+                                        #tagline {
+                                            max-width: 60%;
+                                        }
+
+                                        #tagline h2 {
+                                            white-space: normal;
+                                            font-size: 22px !important;
+                                        }
+                                    }
+
+                                    @media (max-width: 767px) {
+                                        #tagline {
+                                            font-size: 20px !important;
+                                            max-width: 100%;
+                                        }
+
+                                        #tagline h2 {
+                                            font-size: 20px !important;
+                                        }
+                                    }
+                                </style>
+                                <div class="tagline hidden-xs  ml0 pl10" id="tagline"
+                                    style="font-size:36px;position:inherit;">
+
+                                    <span class="pull-right">online</span>
                                     <ul class="pull-right text-right mr15" style="width: 220px;">
                                         <li>Buscá</li>
                                         <li>Tus ómnibus</li>
@@ -1075,7 +1146,8 @@
                                                             <div class=" " style="background-color: white;height:32px;">
                                                                 <img loading="lazy" class="logo-img-ico" alt="" title=''
                                                                     src="https://www.urubus.com.uy/img/socialx.svg"
-                                                                    style="margin:0px;"></div>
+                                                                    style="margin:0px;">
+                                                            </div>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -1964,7 +2036,7 @@
                     <div style="width:100%;text-align: center;">
                         Clic para participar 👉 <i class="mt50 fa fa-instagram fa-3x"></i>
                         </a>
-                
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
@@ -1975,7 +2047,7 @@
 </body>
 <script>
     function myFunctionPack() {
-        
+
         try {
             if (typeof myFunction === 'function') {
                 myFunction();
@@ -1995,48 +2067,48 @@
 
 <!-- Fallback: si el loader queda activo demasiado tiempo, mostrar el contenido principal -->
 <script>
-    (function () {
-        function forceReveal() {
-            try {
-                var loader = document.getElementById('loader');
-                var big = document.getElementById('big-container');
-                var loaderResults = document.getElementById('loader-results');
+        (function () {
+            function forceReveal() {
+                try {
+                    var loader = document.getElementById('loader');
+                    var big = document.getElementById('big-container');
+                    var loaderResults = document.getElementById('loader-results');
 
-                if (loader) {
-                    loader.style.display = 'none';
-                    loader.style.visibility = 'hidden';
-                    try { loader.parentNode && loader.parentNode.removeChild(loader); } catch(e) {}
+                    if (loader) {
+                        loader.style.display = 'none';
+                        loader.style.visibility = 'hidden';
+                        try { loader.parentNode && loader.parentNode.removeChild(loader); } catch (e) { }
+                    }
+
+                    if (loaderResults) {
+                        loaderResults.style.display = 'none';
+                        loaderResults.style.visibility = 'hidden';
+                    }
+
+                    if (big) {
+                        big.style.display = 'block';
+                        big.style.visibility = 'visible';
+                        big.style.opacity = '1';
+                    }
+
+                    // Asegura que la página permita scroll
+                    try { document.body.style.overflow = ''; } catch (e) { }
+
+                    console.info('Fallback forceReveal aplicado: loader ocultado, #big-container mostrado');
+                } catch (e) {
+                    console.warn('forceReveal error', e);
                 }
-
-                if (loaderResults) {
-                    loaderResults.style.display = 'none';
-                    loaderResults.style.visibility = 'hidden';
-                }
-
-                if (big) {
-                    big.style.display = 'block';
-                    big.style.visibility = 'visible';
-                    big.style.opacity = '1';
-                }
-
-                // Asegura que la página permita scroll
-                try { document.body.style.overflow = ''; } catch (e) {}
-
-                console.info('Fallback forceReveal aplicado: loader ocultado, #big-container mostrado');
-            } catch (e) {
-                console.warn('forceReveal error', e);
             }
-        }
 
-        // Intentos escalonados: rápido, después de 1.2s y como último recurso 5s
-        if (document.readyState === 'complete') {
-            forceReveal();
-        } else {
-            window.addEventListener('load', function () { setTimeout(forceReveal, 200); });
-        }
-        setTimeout(forceReveal, 1200);
-        setTimeout(forceReveal, 5000);
-    })();
+            // Intentos escalonados: rápido, después de 1.2s y como último recurso 5s
+            if (document.readyState === 'complete') {
+                forceReveal();
+            } else {
+                window.addEventListener('load', function () { setTimeout(forceReveal, 200); });
+            }
+            setTimeout(forceReveal, 1200);
+            setTimeout(forceReveal, 5000);
+        })();
 </script>
 
 <style>
