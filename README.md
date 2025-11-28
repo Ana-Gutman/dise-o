@@ -13,4 +13,4 @@ o
 npx http-server -p 8000
 
 Después de correr uno de los comandos, abre en el navegador:
-http://localhost:8000/urubus.html
+http://localhost:8000/principal.html
